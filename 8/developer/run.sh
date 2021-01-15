@@ -40,7 +40,7 @@ if [[ "$1" = 'bin/sonar.sh' ]]; then
             sq_opts+=("-D${envvar_key}=${envvar_value}")
         fi
     done < <(env)
-
+    sq_opts+=("-Dsonar.es.bootstrap.checks.disable=true") # Environment variable to disable ES bootstrap check.
     #
     # Deprecated environment variable mapping that will be removed in future versions.
     # Please use environment variables from https://docs.sonarqube.org/latest/setup/environment-variables/
